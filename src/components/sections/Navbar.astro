@@ -1,10 +1,21 @@
 ---
-
+import { navData } from "../../assets/data/navData";
+const logoData = navData[0];
 ---
 
-<nav>
-    <ul class="li">navig</ul>
-    <ul class="li">home</ul>
-    <ul class="li">about</ul>
-    <ul class="li">register</ul>
+<nav class="flex justify-between items-center py-3 px-20 text-stone-800">
+    <a href={logoData.href} class="logo">Tech Meetup</a>
+    <ul class="flex space-x-8 items-center">
+        {navData.slice(1, -1).map((item) => (
+            <li>
+                <a href={item.href}>{item.title}</a>
+            </li>
+        ))}
+        <li>
+            <a href={navData[navData.length - 1].href} class="flex items-center px-4 py-2 rounded-xl bg-blue-600 text-white font-bold">
+                {navData[navData.length - 1].title}
+            </a>
+        </li>
+    </ul>   
+
 </nav>
