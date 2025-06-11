@@ -1,6 +1,34 @@
 ---
+import { footerLinksData } from "../../assets/data/footerLinksData";
+import { socialMediaLinks } from "../../assets/data/footerLinksData";
 
+const currentYear = new Date().getFullYear();
 ---
-<footer>
-    <h1>Footer component</h1>
-</footer>
+
+<section class="px-36 py-10 space-y-8 text-stone-600">
+  <!-- Quick Links -->
+  <div class="flex gap-4 flex-wrap items-center justify-around">
+    {
+      footerLinksData.map((item) => (
+        <a href={item.url} target="_blank" class="">
+          {item.title}
+        </a>
+      ))
+    }
+  </div>
+  <!-- Social Media Links -->
+  <div class="flex justify-center items-center gap-4">
+    {
+      socialMediaLinks.map((item) => (
+        <a href={item.url} target="_blank" class="inline-block mr-4">
+          {/* <img src={item.icon.src} alt={item.name} class="w-8 h-8" /> */}
+          <item.icon />
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="text-center">
+    &copy; Innovate-X {currentYear}. All rights reserved.
+  </p>
+</section>
