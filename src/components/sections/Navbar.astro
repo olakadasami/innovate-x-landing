@@ -3,19 +3,25 @@ import { navData } from "../../assets/data/navData";
 const logoData = navData[0];
 ---
 
-<nav class="flex justify-between items-center py-3 px-20 text-stone-800">
-    <a href={logoData.href} class="logo">Tech Meetup</a>
-    <ul class="flex space-x-8 items-center">
-        {navData.slice(1, -1).map((item) => (
-            <li>
-                <a href={item.href}>{item.title}</a>
-            </li>
-        ))}
+<nav
+  class="flex justify-between items-center gap-4 py-3 px-4 sm:px-6 md:px-10 lg:px-20 text-stone-800"
+>
+  <a href={logoData.href} class="font-bold text-lg md:text-xl">Innovate-X</a>
+  <ul class="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+    {
+      navData.slice(1, -1).map((item) => (
         <li>
-            <a href={navData[navData.length - 1].href} class="flex items-center px-4 py-2 rounded-xl bg-blue-600 text-white font-bold">
-                {navData[navData.length - 1].title}
-            </a>
+          <a href={item.href}>{item.title}</a>
         </li>
-    </ul>   
-
+      ))
+    }
+    <li>
+      <a
+        href={navData[navData.length - 1].href}
+        class="flex items-center px-4 py-2 rounded-xl bg-blue-600 text-white font-bold"
+      >
+        {navData[navData.length - 1].title}
+      </a>
+    </li>
+  </ul>
 </nav>

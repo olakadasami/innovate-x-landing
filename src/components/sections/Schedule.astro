@@ -1,16 +1,16 @@
 ---
 import ScheduleItem from "../Schedule/ScheduleItem.astro";
-import {scheduleData} from "../../assets/data/scheduleData";
-
+import { scheduleData } from "../../assets/data/scheduleData";
 ---
 
-<section class="px-36 py-10">
-    <h2 class="text-2xl font-bold mb-8">Schedule</h2>
+<section class="section-card">
+  <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Schedule</h2>
 
-    <div class="">
-        {scheduleData.map((item, index) => (
-            <ScheduleItem showLine={index !== scheduleData.length - 1} {...item} />
-        ))}
-    </div>
-
+  <div class="">
+    {
+      scheduleData.map((item, index) => (
+        <ScheduleItem showLine={index !== scheduleData.length - 1} {...item} />
+      ))
+    }
+  </div>
 </section>

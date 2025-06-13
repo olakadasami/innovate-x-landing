@@ -4,3 +4,9 @@
 @theme {
   --font-space-grotesk: "Space Grotesk", sans-serif;
 }
+
+@layer components {
+  .section-card {
+    @apply px-4 py-6 sm:px-8 sm:py-8 md:px-10 lg:px-20 lg:py-10;
+  }
+}
