@@ -9,11 +9,11 @@ export const footerLinksData = [
   },
   {
     title: "Privacy Policy",
-    url: "#",
+    url: "/privacy-policy",
   },
   {
     title: "Terms of Service",
-    url: "#",
+    url: "/terms-and-conditions",
   },
 ];
 
