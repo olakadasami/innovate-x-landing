@@ -1,15 +1,89 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  headContent?: any;
+}
+
+const siteUrl = "https://innovate-x-2025.netlify.app/";
+const {
+  title = "Innovate-X 2025 | Tech Event of the Year",
+  description = "Join us at Innovate-X 2025 — the premier tech event for innovators, startups, and visionaries in Eleme, Rivers State.",
+  headContent,
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>InnovateX - Tech Meetup</title>
-	</head>
-	<body class="font-space-grotesk">
-		<slot />
-	</body>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Innovate-X, Tech Event, Rivers State, Eleme, Nigeria, Innovation, Startups, Astro"
+    />
+    <meta name="author" content="Innovate-X Team" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}images/og-image.jpg`} />
+    <meta property="og:url" content={siteUrl} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}images/og-image.jpg`} />
+
+    <!-- Favicon & Manifest -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Innovate-X 2025",
+        "startDate": "2025-09-10T09:00",
+        "endDate": "2025-09-12T18:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Eleme Innovation Hub",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Central Eleme",
+            "addressLocality": "Eleme",
+            "postalCode": "500101",
+            "addressRegion": "Rivers",
+            "addressCountry": "NG"
+          }
+        },
+        "image": ["${siteUrl}images/og-image.jpg"],
+        "description": "Join us at Innovate-X 2025 — the premier tech event for innovators, startups, and visionaries in Rivers State, Nigeria.",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Innovate-X",
+          "url": "${siteUrl}"
+        }
+      }
+    </script>
+  </head>
+
+  <!-- Inject additional meta or script tags passed in -->
+  {headContent}
+
+  <body class="font-space-grotesk">
+    <slot />
+  </body>
 </html>
-
-
